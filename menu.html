@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>เมนูร้านอาหาร</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .menu-item {
+      background: white;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 5px 10px;
+      margin-top: 10px;
+      background: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+    }
+    #cart {
+      margin-top: 20px;
+      background: #fff3cd;
+      padding: 15px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>📱 เมนูร้านอาหาร</h1>
+
+<div class="menu-item">
+  <h3>ข้าวผัด</h3>
+  <p>ราคา 50 บาท</p>
+  <button onclick="addToCart('ข้าวผัด',50)">เลือก</button>
+</div>
+
+<div class="menu-item">
+  <h3>ก๋วยเตี๋ยว</h3>
+  <p>ราคา 45 บาท</p>
+  <button onclick="addToCart('ก๋วยเตี๋ยว',45)">เลือก</button>
+</div>
+
+<div class="menu-item">
+  <h3>ชาเย็น</h3>
+  <p>ราคา 30 บาท</p>
+  <button onclick="addToCart('ชาเย็น',30)">เลือก</button>
+</div>
+
+<div id="cart">
+  <h3>🛒 รายการที่เลือก</h3>
+  <ul id="cart-list"></ul>
+  <p><strong>รวม: <span id="total">0</span> บาท</strong></p>
+  <button onclick="submitOrder()">ส่งออเดอร์</button>
+</div>
+
+<script>
+let total = 0;
+let cartList = document.getElementById("cart-list");
+
+function addToCart(name, price) {
+  let li = document.createElement("li");
+  li.textContent = name + " - " + price + " บาท";
+  cartList.appendChild(li);
+
+  total += price;
+  document.getElementById("total").textContent = total;
+}
+
+function submitOrder() {
+  alert("ส่งออเดอร์เรียบร้อย! รวมทั้งหมด " + total + " บาท");
+}
+</script>
+
+</body>
+</html>
